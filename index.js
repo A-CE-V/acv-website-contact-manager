@@ -78,3 +78,12 @@ app.post('/api/contact', async (req, res) => {
 });
 
 app.listen(3000, () => console.log('Secure API running on port 3000'));
+
+app.get("/health", (req, res) => {
+  res.json({
+    success: true,
+    status: "ok",
+    uptime_seconds: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
